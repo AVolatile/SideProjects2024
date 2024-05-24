@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Membership Sign-Up</title>
+  <style>
+    body {
+      background-color: #3f3682;
+      color: #00bb38;
+      font-family: 'Courier New', Courier, monospace, sans-serif;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      padding: 1em;
+      background: #181d54;
+      border-radius: 20px;
+      color: #ffffff;
+    }
+
+    label {
+      margin-top: 1em;
+      display: block;
+    }
+
+    input,
+    button,
+    select {
+      width: 95%;
+      padding: 0.7em;
+      margin-top: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      transition: background-color .7s ease, color 0.3s ease;
+    }
+
+    input {
+      background: #ffffff;
+      color: #ffffff;
+    }
+
+    button {
+      background-color: #3636b4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #33165c;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <h1>Gym Membership Sign-Up</h1>
+    <h2>Join Our Gym Today!</h2>
+    <style>
+      .button-link {
+        color: #36b4a9;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .button-link:hover {
+        color: #118c69;
+      }
+    </style>
+    <a href="http://localhost:3000/memberships" class="button-link">View Membership List</a>
+  </center>
+  <form id="gymMembershipForm" action="http://localhost:3000/createMembership" method="POST">
+    <label for="FirstName">First Name:</label>
+    <input type="text" id="FirstName" name="FirstName" required>
+
+    <label for="LastName">Last Name:</label>
+    <input type="text" id="LastName" name="LastName" required>
+
+    <label for="DateOfBirth">Date of Birth:</label>
+    <input type="date" id="DateOfBirth" name="DateOfBirth" required>
+
+    <label for="Email">Email:</label>
+    <input type="email" id="Email" name="Email" required>
+
+    <label for="PhoneNumber">Phone Number:</label>
+    <input type="text" id="PhoneNumber" name="PhoneNumber" required>
+
+    <label for="Address">Address:</label>
+    <input type="text" id="Address" name="Address" required>
+
+    <label for="MembershipType">Membership Type:</label>
+    <select id="MembershipType" name="MembershipType" required>
+      <option value="Monthly">Monthly</option>
+      <option value="Quarterly">Quarterly</option>
+      <option value="Yearly">Yearly</option>
+    </select>
+
+    <label for="StartDate">Start Date:</label>
+    <input type="date" id="StartDate" name="StartDate" required>
+
+    <label for="PaymentMethod">Payment Method:</label>
+    <input type="text" id="PaymentMethod" name="PaymentMethod" required>
+
+    <button type="submit">Sign Up</button>
+  </form>
+</body>
+
+</html>
