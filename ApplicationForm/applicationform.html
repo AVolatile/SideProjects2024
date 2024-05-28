@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Job Application Form</h1>
+    <form action="/applyJob" method="POST">
+      <label for="FirstName">First Name:</label>
+      <input type="text" id="FirstName" name="FirstName" required>
+
+      <label for="LastName">Last Name:</label>
+      <input type="text" id="LastName" name="LastName" required>
+
+      <label for="DateOfBirth">Date of Birth:</label>
+      <input type="date" id="DateOfBirth" name="DateOfBirth" required>
+
+      <label for="Email">Email:</label>
+      <input type="email" id="Email" name="Email" required>
+
+      <label for="PhoneNumber">Phone Number:</label>
+      <input type="tel" id="PhoneNumber" name="PhoneNumber" required>
+
+      <label for="Address">Address:</label>
+      <textarea id="Address" name="Address" required></textarea>
+
+      <label for="PositionApplied">Position Applied For:</label>
+      <input type="text" id="PositionApplied" name="PositionApplied" required>
+
+      <label for="ResumeLink">Resume Link:</label>
+      <input type="url" id="ResumeLink" name="ResumeLink" required>
+
+      <label for="CoverLetter">Cover Letter:</label>
+      <textarea id="CoverLetter" name="CoverLetter" required></textarea>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+</body>
+<script src="applicationform.js"></script>
+</html>
