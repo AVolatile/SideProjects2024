@@ -5,9 +5,9 @@
 }
 
 body {
-    background: linear-gradient(45deg, #ff217e, #8c00ff, #25caf3, #f700ff);
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
     background-size: 400% 400%;
-    animation: BackgroundGradient 2000ms ease infinite;
+    animation: BackgroundGradient 10s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,10 +59,10 @@ body {
     margin: 20px 0;
     font-weight: 500;
     transition: background 1.5s ease, color 1.5s ease;
-
 }
-.container button:hover{
-    background: #3a89ff;
+
+.container button:hover {
+    background: #3b3fb4;
     color: #ffffff;
 }
 
@@ -74,4 +74,43 @@ body {
 #imgBox img {
     max-width: 100%;
     height: auto;
+    margin-bottom: 10px;
+}
+
+#downloadBtn {
+    width: 100%;
+    height: 50px;
+    background: #4caf50;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 1.5s ease, color 1.5s ease;
+}
+
+#downloadBtn:hover {
+    background: #45a049;
+}
+
+#errorMessage {
+    color: red;
+    font-weight: 600;
+}
+
+#loadingIndicator {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 5px solid #494eea;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
