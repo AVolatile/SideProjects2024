@@ -1,0 +1,7 @@
+This application allows the user to add tasks to the list, the 
+
+ability to cross them out when completed and the ability to remove them. 
+
+It uses local storage to save the list even when the application page is 
+
+closed or refreshed.
