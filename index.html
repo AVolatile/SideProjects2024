@@ -1,75 +1,60 @@
-<!DOCTYPE html> 
-<html lang="en"> 
 
-<head> 
-	<meta charset="UTF-8"> 
-	<meta name="viewport"
-		content="width=device-width,initial-scale=1.0"> 
-	<title>Responsive Form Card</title> 
-	<link rel="stylesheet" href= 
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
-	<link rel="stylesheet" href="index.css"> 
-</head> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <p>Enter your text or URL</p>
+        <input type="text" placeholder="Text or URL" id="qrText">
+        <button onclick="generateQr()">Generate QR Code</button>
+        <div id="imgBox">
+            <img src="" id="qrImage" alt="QR Code will appear here">
+            <button id="downloadBtn" onclick="downloadQrCode()">Download QR Code</button>
+        </div>
+        <p id="errorMessage"></p>
+        <div id="loadingIndicator"></div>
+    </div>
 
-<body> 
-	<h1>Talk to us!</h1> 
-	<h3>Feedback Form using 
-		HTML and CSS 
-	</h3> 
-	<div class="form-box"> 
-		<div class="textup"> 
-			<i class="fa fa-solid fa-clock"></i> 
-			Our team will get back to you within 24 hrs! 
-		</div> 
-		<form> 
-			<label for="uname"> 
-				<i class="fa fa-solid fa-user"></i> 
-				Name 
-			</label> 
-			<input type="text" id="uname"
-				name="uname" required> 
+    <script>
+        let imgBox = document.getElementById('imgBox');
+        let qrImage = document.getElementById('qrImage');
+        let qrText = document.getElementById('qrText');
+        let errorMessage = document.getElementById('errorMessage');
+        let loadingIndicator = document.getElementById('loadingIndicator');
 
-			<label for="email"> 
-				<i class="fa fa-solid fa-envelope"></i> 
-				Email Address 
-			</label> 
-			<input type="email" id="email"
-				name="email" required> 
+        function generateQr() {
+            let qrData = qrText.value.trim();
+            if (qrData) {
+                errorMessage.textContent = '';
+                loadingIndicator.style.display = 'block';
+                qrImage.onload = () => {
+                    loadingIndicator.style.display = 'none';
+                    imgBox.style.display = 'block';
+                };
+                qrImage.onerror = () => {
+                    loadingIndicator.style.display = 'none';
+                    errorMessage.textContent = 'Failed to generate QR code. Please try again.';
+                };
+                qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + encodeURIComponent(qrData);
+            } else {
+                errorMessage.textContent = 'Please enter valid text or URL.';
+                imgBox.style.display = 'none';
+            }
+        }
 
-			<label for="phone"> 
-				<i class="fa-solid fa-phone"></i> 
-				Phone Number
-			</label> 
-			<input type="tel" id="phone"
-				name="phone" required> 
-
-			<label> 
-				<i class="fa-solid fa-face-smile"></i> 
-				Do you satisfy with our service? 
-			</label> 
-			<div class="radio-group"> 
-				<input type="radio" id="yes"
-					name="satisfy" value="yes" checked> 
-				<label for="yes">Yes</label> 
-
-				<input type="radio" id="no"
-					name="satisfy" value="no"> 
-				<label for="no">No</label> 
-			</div> 
-
-			<label for="msg"> 
-				<i class="fa-solid fa-comments"
-				style="margin-right: 3px;"></i> 
-				Write your Suggestions: 
-			</label> 
-			<textarea id="msg" name="msg"
-					rows="4" cols="10" required> 
-			</textarea> 
-			<button type="submit"> 
-				Submit 
-			</button> 
-		</form> 
-	</div> 
-</body> 
-
+        function downloadQrCode() {
+            const link = document.createElement('a');
+            link.href = qrImage.src;
+            link.download = 'qr_code.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
 </html>
